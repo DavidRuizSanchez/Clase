@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ARRAYS</title>
+</head>
+<body>
+
+<script>
+	window.onload=function(){
+		var grupo = ["item1",3,"item3",true];
+		console.log(grupo);
+		grupo.shift(); //elimina el primer elemento del array
+		console.log(grupo);
+		grupo.unshift("Ponte el primero"); //añade un elemento al principio del array
+		console.log(grupo);
+		grupo.splice(1,1); //a partir del indice 1 borra un elemento. los parámetros son índice inicial y cantidad de borrados.
+		console.log(grupo);
+	}
+</script>
+</body>
+</html>

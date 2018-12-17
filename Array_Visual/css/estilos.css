@@ -1,0 +1,86 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: "courier new";
+}
+p{
+	margin: 0;
+	padding: 0;
+	line-height: 1em;
+}
+.insertar{
+	width: 300px;
+	padding: 10px;
+	border-bottom: 1px dashed #ccc;
+}
+.controles{
+	padding: 0 5px; 
+	float: left;
+	width: calc(50% - 10px); /*calcula la aperación, muy importntes los espacios*/
+	text-align: center;
+}
+.clearfix{
+	clear:both;
+}
+.controles:nth-child(1) input{ /*selecciona todos los inputs del primer hijo de controles (en este caso solo hay uno). Es lo único que no comienza en 0*/
+	display: block; /*porque los elementos de formulario son en linea*/
+	width: calc(100% - 10px);
+	padding: 5px;
+	border: 1px solid #ccc;
+	font-size: 1.1em;
+	text-align: center; 
+}
+.controles:nth-child(2) input:nth-child(1){
+	border-radius: 100%;
+	border:none;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	color: #fff;
+	background-color: #c09;
+	margin: 5px auto;
+	display: block;
+	font-size: 1.9em;
+}
+.controles:nth-child(2) input:nth-child(2),.controles:nth-child(2) input:nth-child(3){
+	display:inline-block;
+	padding: 5px;
+	width: 20%;
+}
+.contenedor-array{
+	padding: 10px;
+}
+.corchete{
+	width: calc(3% - 5px);
+	border-top: 5px solid #333;
+	border-bottom: 5px solid #333;
+	height: 100px;
+	float:left;
+}
+.corchete_abre{
+	border-left: 5px solid #333;
+}
+.corchete_cierra{
+	border-right: 5px solid #333;
+}
+.elemento{
+	font-size: 4em;
+	padding: 25px 10px 0;
+	height: 100px;
+	float: left;
+	position: relative;
+
+}
+.close{
+	display:block;
+	font-size: 0,3em;
+	width: 5px;
+	color: #999;
+	text-decoration: none;
+	text-align: center;
+	padding: 2px;
+	position: absolute;
+	top: 3px;
+	right: 3px;
+}
+

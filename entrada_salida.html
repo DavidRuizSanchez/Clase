@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		body{
+			margin: 0;
+			margin-left: 10px;
+			padding: 0;
+			font-family: sans-serif;
+			font-size: 100%;
+		}
+		#entrada{
+			display: block;
+			border: none;
+			border-bottom: 1px solid #333;
+			width: 200px;
+			font-size: 0.9em;
+			padding: 10px;
+		}
+		#salida{
+			position: absolute;
+			bottom:0;
+			width: 100%; 
+			text-align: right;
+			font-family: impact;
+			color: #c03;
+			font-size: 3em;
+		}
+	</style>
+</head>
+<body>
+	<h1>Entrada - Salida</h1>
+	<form><input type="text" id="entrada" placeholder="Escribir"></form>
+	<p id="salida"></p>
+<script>
+	//window representa el navegador
+	//document representa el docuemnto html
+	window.onload=function(){
+		var entrada=document.getElementById("entrada");
+		var salida=document.getElementById("salida"); //seleccionando una etiqueta y pulsando cmd+d podemos modificar el texto de la etiqueta de apertura y cierre
+		entrada.oninput=function(){
+			console.log(entrada.value.split("").reverse().join("")); 
+			//split parte la cadena por el parametro que le pasemos y se carga el separador. Si pasamos el parametro en blanco, parte letra a letra
+			//join une la cadena añadiendo como punto de union el parametro que le pasemos. Si le pasamos un parametro en blanco, junta todo. Si no pasamos parametro, añade un ,
+			salida.innerHTML=entrada.value.split("").reverse().join("");
+			//style permite acceder al elemento CSS
+			salida.style.backgroundColor="rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+")";
+		}
+	}
+
+</script>
+</body>
+</html>

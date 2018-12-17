@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		body{
+			margin:0;
+			padding:0;
+			font-family: sans-serif;
+		}
+		nav{
+			padding: 10px;
+		}
+		nav ul{
+			list-style-type: none; /*para quitar las viñetas*/
+			padding: 0;
+			margin: 0;
+		}
+		nav ul li a{
+			display: block;
+			width: 200px;
+			padding: 5px;
+			text-decoration: none;
+			color: #333;
+		}
+		nav ul li a.activo{ /*para los enlaces con la clase activo*/
+			border-left: 3px solid #999;
+		}
+		div {
+			padding: 10px;
+			display:none;
+		}
+		div.activa{
+			display: block;
+		}
+	</style>
+	<title></title>
+</head>
+<body>
+	<h1>TABS 2</h1>
+
+<script>
+	//idea para hacer yo: cambiar el title al hacer click
+	window.onload=function(){
+		var tabs=[];
+		for(var i=0;i<3;i++){
+			tabs[i]={
+				titulo: "Tab "+i,
+				contenido: "Contenido de la tab "+i
+
+			}
+		}
+		var navegacion=document.createElement("nav");
+		var lista=document.createElement("ul"); //creamos estos 2 elementos porque son los unicos que no se repiten.
+		navegacion.appendChild(lista);
+		var enlaces=[];
+		var contenedores=[];
+		document.body.appendChild(navegacion); //los agregamos al DOM
+		for (var i=0;i<tabs.length;i++){
+			(function(indice){
+				contenedores[indice]=document.createElement("div");
+				contenedores[indice].className=(indice==0)?className="activa":""; //ternario. si indice = 0, entonces clase=activa, sino calse vacia. Establecemos el indice 0 activo por defecto.
+				var parrafo=document.createElement("p");
+				parrafo.innerHTML=tabs[indice].contenido;
+				contenedores[indice].appendChild(parrafo);
+				document.body.appendChild(contenedores[indice]);
+				//Enlaces
+				var item=document.createElement("li");
+				enlaces[indice]=document.createElement("a");
+				enlaces[indice].href="#";
+				enlaces[indice].innerHTML=tabs[indice].titulo;
+				enlaces[indice].className=(indice==0)?className="activo":"";
+				enlaces[indice].onclick=function(evento){
+					evento.preventDefault();
+					for(var j=0;j<tabs.length;j++){
+						enlaces[j].className="";
+						contenedores[j].className="";
+					}
+					enlaces[indice].className="activo";
+					contenedores[indice].className="activa";
+
+
+				}
+				item.appendChild(enlaces[indice]);
+				lista.appendChild(item);
+
+			})(i);
+		}
+	}
+	
+</script>
+</body>
+</html>

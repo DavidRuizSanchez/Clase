@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body{
+			margin: 0;
+			padding:0;
+			font-family: tahoma;
+		}
+		.menu{
+			display:block; 
+			width: 100px;
+			font-size: 0.8em;
+			color: #03c;
+			text-decoration: none;
+			padding: 10px;
+		}
+		.navegacion{
+			margin: 0;
+			padding: 10px;
+			width: 200px;
+		}
+		.navegacion li a{
+			display: block;
+			text-decoration: none;
+			color: #333;
+			transition: 0.5s;
+		}
+		.navegacion li a:hover{
+			color: #ccc;
+			letter-spacing: 0.1em;
+
+		}
+	</style>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<a class="menu" href="#">MENU <span class="simbolo">+</span></a>
+<ul class="navegacion">
+	<li>
+		<a href="#">ENLACE 1</a>
+	</li>
+	<li>
+		<a href="#">ENLACE 2</a>
+	</li>
+	<li>
+		<a href="#">ENLACE 3</a>
+	</li>
+</ul>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script>
+	$(document).ready(
+		function(){
+		$(".navegacion").hide();
+		var abierto=0;	
+		$(".menu").click(function(e){
+			e.preventDefault;
+			if(abierto>0){
+				$(".navegacion").slideUp();
+				abierto=0;
+				$(".simbolo").text("+");
+			}else{
+				$(".navegacion").slideDown();
+				abierto=1;
+				$(".simbolo").text("-");
+			}
+
+
+		})
+		}	
+	);
+
+</script>
+
+
+</body>
+</html>

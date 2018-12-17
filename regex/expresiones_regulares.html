@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+<script>
+	window.onload=function(){
+		//var reg=/a/ //las expresiones regulares tienen / al inicio y al final y son un tipo de datos (como los strings, integer, objetos...)
+		//console.log(reg.test("abracadabra")); //test permite pasar una string para validar contra una regex. Verdadero es que pasa y falso es que no. En este caso se pregunta si la cedena pasada contien la letra a. Si la contiene devuelve verdadero.
+		//var reg=/t.m/ //el punto es un comodín o wildcard y sirve para cualquier caracter
+		//console.log(reg.test("txm"));
+		//var reg=/^t[aeiou]m$/ //con los corchetes agrupamos caracteres. el techo indica el caracter inicial y el $ el caracter final
+		//console.log(reg.test("tomas"));
+		//var reg=/^t[aeiou]+m$/ //el simbolo + indica que el caracter que le precede puede aparecer una o más veces. En este caso al ser un corchete, todos los elementos del corchete pueden aparecer varias veces.
+		//console.log(reg.test("toooooooooooaeeeeiiiiiiiiixom"));
+		//var reg=/^t[aeiou]*m$/ //el asterico indica que el carecter que le precede puede aparecer o 0 veces o mas. En este ejemplo, también valdría la combinación tm 
+		//console.log(reg.test("taeioum"));
+		//var reg=/^t[aeiou]?m$/ //el simbolo ? hace que el caracter que le precede sea opcional (que aparezca o no), pero solo una vez, no pueden aparecer varias 
+		//console.log(reg.test("tabm"));
+		//var reg=/^(T|t)[aeiou]?m$/ //el pipe sirve para dar alternativas de varios caracteres 
+		//console.log(reg.test("Tam"));
+		//var reg=/^(T|t)(a|[eiou])?m$/ 
+		//console.log(reg.test("Tam"));
+ 
+		//var regex=/^\d\d$/ //la cadena \d sirve para representar dígitos
+		//console.log(regex.test("21"));
+
+		//var regex=/^\d{5,}$/ //el numero de dentro de los corchetes {5}, indica el numero de repticiones del caracter que le precede. También se pueden poner 2 valores en lugar de uno, en ese caso, serán el mínimo y el máximo. Para decir el número mínimo pero no el máximo podríamos eliminar el segundo caracter {5,}
+		//console.log(regex.test("213459994888888888888"));
+
+		//var regex=/^([a-zA-Z]|\d){5,}$/ //esto permitiría cualquier letra de la a a la z, mayúsculas o minísculas o un número, un mínimo de 5 veces y sin límite
+		//console.log(regex.test("aS55"));
+
+		//var regex=/^28\d{3}$/ //para validar un codigo postal de
+		//console.log(regex.test("28005"));
+
+		//las \ sirven para escapar los caracteres especiales que tienen detrás
+
+		//var regex=/^[0123][0-9]\/[01][1-9]\/(19|20)[0-9][0-9]$/ //para validar una fecha de nacimiento
+		//console.log(regex.test("17/12/1981"));
+
+		//var regex=/^[A-Z][a-z]*$/ //Para validar nombres o apellidos
+		//console.log(regex.test("David"));
+
+		var regex=/^[a-z0-9_%\+\-\.]+@[a-z0-9]+\.?[a-z]{2,3}\.[a-z]{2,3}$/ //Para validar un email
+		console.log(regex.test("davidruizsanchez@gmail.com"));
+
+
+
+	}
+</script>
+</body>
+</html>

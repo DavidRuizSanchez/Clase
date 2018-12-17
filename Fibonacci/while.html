@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	window.onload = function(){
+		//ejemplo para ver la estructura while
+		var contador = 0;
+		while(contador < 8){
+
+			console.log(contador);
+			contador++;
+		}
+        
+        var nombre = "santiago";
+        //convertimos el string en un array 
+        nombre = nombre.split("");
+        console.log(nombre);
+
+        var control = 0;
+
+        while(control < nombre.length){
+            
+            switch(nombre[control]){
+            	case "a":
+            		nombre[control] = "4";
+            		break; 
+            	case "e":
+            		nombre[control] = "3";
+            		break;
+            	case "i":
+            		nombre[control] = "1";
+            		break;
+            	case "o":
+            		nombre[control] = "0";
+            		break;
+            	//el resto de caracteres los convertimos en un guión bajo
+            	default :
+            	    nombre[control] = "_";
+            	break;
+            }
+            console.log(nombre);
+        	control++;
+        }
+        //convertimos el array otra vez en el string
+        nombre = nombre.join("");
+        console.log(nombre);
+        //prueba con arrays
+        var prueba = [];
+        //añadimos elementos al array
+        prueba.push("hola",5,prueba[2]);
+        console.log(prueba);
+
+	}
+</script>
+</body>
+</html>

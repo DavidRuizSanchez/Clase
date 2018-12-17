@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="estilo_menu_multiple.css">
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<ul>
+		<li><a href="#">HoMe</a></li>
+		<li><a href="#" class="desplegable">CaTeGoRíAs</a>
+			<ul class="lista_categorias esconder">
+				<li><a href="#">HoGaR</a></li>
+				<li><a href="#">NiÑoS</a></li>
+			</ul>
+		</li>
+		<li><a href="#" class="desplegable">QuIeNeS SoMoS</a>
+			<ul class="lista_categorias esconder">
+				<li><a href="#">RsC</a></li>
+				<li><a href="#">NuEsTrA EmPrEsA</a></li>
+			</ul>
+		</li>
+	</ul>
+
+<script>
+	window.onload=function(){
+		var controles=[]; //0 cerrado y 1 abierto. Aqui almacenaremos un valor por cada deplegable, para que se controlen de manera independiente
+		
+		var desplegables=document.getElementsByClassName("desplegable");
+		var categorias=document.getElementsByClassName("lista_categorias");
+		//console.log(desplegables);
+		//console.log(categorias);
+		
+		for (var i=0;i<desplegables.length;i++){
+			//console.log(categorias[i]);
+			(function(indice){
+
+				controles[indice]=0; //fijamos los controles a 0
+				desplegables[indice].onclick=function(e){
+				e.preventDefault();
+				//console.log(this);
+				if(controles[indice]==0){
+					categorias[indice].className="lista_categorias";
+					controles[indice]=1;
+				}else{
+					categorias[indice].className="lista_categorias esconder";
+					controles[indice]=0;	
+				}
+			}
+
+			})(i)
+			
+		}
+
+		
+
+	}
+</script>
+</body>
+</html>

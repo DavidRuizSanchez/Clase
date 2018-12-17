@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		 body{
+		 	margin: 0;
+		 	padding: 0;
+		 	font-family: sans-serif;
+		 	font-size: 100%;
+		 	color: red;
+		 }
+
+		form{
+			width: 300px;
+			padding: 20px;
+			background-color: gray;
+			border-radius: 10px;
+			border: 1px solid #ccc;
+			margin: 50px auto 0;
+
+		}
+
+		.bloque_formulario{
+			padding: 10px 0;
+		}
+
+		label{
+			display: block;
+			color: #999;
+			text-transform: uppercase;
+			font-size: 0.7em;
+			letter-spacing: 0.1em;
+			color: white;
+		}
+		input[type="text"]{
+			display: block;
+			width: 100%;
+			border: none;
+			border-bottom: 1px dashed #999;
+			padding: 5px 0;
+			text-align: center;
+			font-size: 0.9em;
+			color:#333;
+		}
+		input[type="submit"]{
+			display: block;
+			width: 80px;
+			border-radius: 5px;
+			border:none;
+			color: #fff;
+			text-align: center;
+			text-transform: uppercase;
+			padding: 8px 0;
+			margin: 10px auto 0;
+			background-color: #066;
+			background-image: linear-gradient(#0c3,#066);
+		}
+
+		.error{
+			color: #f00;
+			text-transform: uppercase;
+			text-align: center;
+			font-size: 0.8em;
+			letter-spacing: 0.1em;
+			display: none;
+		}
+
+		.ver_error{
+			display: block;
+		}
+
+
+
+
+
+	</style>
+</head>
+<body>
+<form id="formulario">
+	<div class="bloque_formulario">
+			<label>
+				Nombre 
+			</label>	
+					<input type="text" class="entrada">
+                    <p class="error">Hay un error en este campo</p>
+	</div>
+	<div class="bloque_formulario">
+			<label>
+				Apellidos 
+			</label>	
+				    <input type="text" class="entrada">
+					<p class="error">Hay un error en este campo</p>
+	</div>
+	<div class="bloque_formulario">
+			<label>
+				E-mail 
+			</label>	
+					<input type="text" class="entrada">
+					<p class="error">Hay un error en este campo</p>
+	</div>
+	<div class="bloque_formulario">
+			<label>
+				Telefono
+			</label>	
+		            <input type="text" class="entrada">
+		            <p class="error">Hay un error en este campo</p>
+	</div>
+		<div class="bloque_formulario">
+			<label>
+				Fecha de Nacimiento
+			</label>	
+		            <input type="text" class="entrada" placeholder="DD/MM/YYYY">
+		            <p class="error">Hay un error en este campo</p>
+	</div>
+	<div class="bloque_formulario">
+			<label>
+				Codigo Postal 
+			</label>	
+					<input type="text" class="entrada">
+					<p class="error">Hay un error en este campo</p>
+	</div>
+	<div class="bloque_formulario">
+			<label>
+				Web
+			</label>	
+		            <input type="text" class="entrada">
+		            <p class="error">Hay un error en este campo</p>
+	</div>
+
+		<input type="submit" value="Registrate">
+</form>
+
+ <script>
+ 	window.onload=function(){
+ 		
+ 		var formulario=document.getElementById("formulario");
+ 		var entrada=document.getElementsByClassName("entrada");
+ 		var errores=document.getElementsByClassName("error");
+ 		var nombre="mal";
+ 		var apellidos="mal";
+ 		var email="mal";
+ 		var nombre="mal";
+ 		var fecha="mal";
+ 		var cp="mal";
+ 		var web="mal";
+
+ 		console.log(formulario);
+ 		formulario.onsubmit=function(e){
+ 			e.preventDefault();
+ 			
+ 			for(var i=0;i<entrada.length;i++){
+ 				if(i==0){
+ 					if(/^[A-Z][a-z]*$/.test(entrada[0].value)){
+ 						console.log("Nombre OK");
+ 						nombre="ok";
+ 						errores[0].className="error"
+
+ 					} else{
+ 						console.log("Nombre mal");
+ 						errores[0].className="error ver_error";
+ 					}
+ 				}
+ 				if(i==1){
+ 					if(/^[A-Z][a-z]*$/.test(entrada[1].value)){
+ 						console.log("Apellido ok");
+ 						apellidos="ok";
+ 						errores[1].className="error"
+ 					} else{
+ 						console.log("Apellido mal");
+ 						errores[1].className="error ver_error";
+ 					}
+ 				}
+ 				if(i==2){
+ 					if(/^[a-z0-9_%\+\-\.]+@[a-z0-9]+\.?[a-z]{2,3}\.[a-z]{2,3}$/.test(entrada[2].value)){
+ 						console.log("Mail bien");
+ 						email="ok";
+ 						errores[2].className="error"
+ 					}else{
+ 						console.log("mail mal")
+ 						errores[2].className="error ver_error";
+ 					}
+ 				}
+ 				if(i==3){
+ 					if(/^\d\d{7}\d$/.test(entrada[3].value)){
+ 					console.log("telefono bien");
+ 					telefono="ok";
+ 					errores[3].className="error";
+ 				}else{
+ 					console.log("telefono mal");
+ 					errores[3].className="error ver_error";
+ 					}
+ 				}
+ 				if(i==4){
+ 					if(/^[0123][0-9]\/[01][1-9]\/(19|20)[0-9][0-9]$/.test(entrada[4].value)){
+ 						console.log("Fecha bien");
+ 						fecha="ok";
+ 						errores[4].className="error"
+ 					}else{
+ 						console.log("fecha mal");
+ 						errores[4].className="error ver_error";
+ 					}
+ 				}
+ 				if(i==5){
+ 					if(/^28\d{3}$/.test(entrada[5].value)){
+ 						console.log("CP bien");
+ 						cp="ok";
+ 						errores[5].className="error"
+ 					}else{
+ 						console.log("CP mal");
+ 						errores[5].className="error ver_error";
+ 					}
+ 				}
+ 				if(i==6){
+ 					if(/^(http|https):\/\/(w{3}\.[a-z]+|[a-z]+)\.[a-z]{2,3}$/.test(entrada[6].value)){
+ 						console.log("web bien");
+ 						web="ok";
+ 						errores[6].className="error";
+ 					}else{
+ 						console.log("web mal");
+ 						errores[6].className="error ver_error";
+ 					}
+ 				}
+ 			}
+ 			if (nombre=="ok" && apellidos=="ok" && email=="ok" && fecha=="ok" && cp=="ok" && web=="ok" && telefono=="ok"){
+ 				
+ 				var datos={
+ 					"nombre" : entrada[0].value,
+ 					"apellidos" : entrada[1].value,
+ 					"e-mail" : entrada[2].value,
+ 					"Teléfono" : entrada[3].value,
+ 					"Fecha de nacimiento" : entrada[4].value,
+ 					"Código Postal" : entrada[5].value,
+ 					"Web" : entrada[6].value,
+ 				}
+ 				console.log(datos);
+ 			}else{
+ 				var nombre="mal";
+		 		var apellidos="mal";
+		 		var email="mal";
+		 		var nombre="mal";
+		 		var fecha="mal";
+		 		var cp="mal";
+		 		var web="mal";
+		 		var telefono="mal";
+ 			}
+ 		
+ 		}
+ 		var regex=/^\d\d{7}\d$/
+ 		console.log(regex.test("699057344"));
+ 	}
+ 	
+ </script>
+
+
+</body>
+</html>

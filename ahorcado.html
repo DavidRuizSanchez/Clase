@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<!-- 
+
+	- Cargar las palabras via AJAX 
+	- Lista para que no se repitan
+	- Entrada de caracteres en cuadro maquetado y seleccionar con un click?
+	- Se muestran todas las imágenes y cuando fallo display block
+	- Boton de volver a jugar que resetee los valores y no recargue la página
+	- La palabra seleccionada hay que meterla en un array (split) con sus propias letras y comprar la letra introducia contra cada una de ellas
+	- tenemos que tener una array para ir almacenando las letras correctas introducidas (previamente comparadas contra la palabra seleccionada)
+	- Determinaremos si la letra es corecta o no comparando si el numero de errores de la comparación contra la palabra es igual al numero de letras de la palabra
+
+
+	-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+window.onload=function(){
+
+ function RandomWord() { 
+ 	var requestStr = "http://randomword.setgetgo.com/get.php"; 
+ 	$.ajax({ type: "GET", url: requestStr, dataType: "jsonp", jsonpCallback: 'RandomWordComplete' }); } 
+
+ function RandomWordComplete(data) { 
+ 	alert(data.Word); 
+ }
+
+RandomWord();
+
+}
+ 
+
+
+</script>
+</body>
+</html>

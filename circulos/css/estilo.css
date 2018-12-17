@@ -1,0 +1,107 @@
+body{
+	margin:0;
+	padding: 0;
+}
+
+.puntuacion{
+	width: 400px;
+	margin: 50px auto 0;
+	font-family: impact;
+	color: #666;
+	font-size: 1.2em;
+	text-align: right;
+}
+
+.tablero{
+	border: 1px solid #ccc;
+	width: 400px;
+	height: 400px;
+	padding: 10px;
+	margin: 20px auto 0;
+}
+.circulo{
+	background-color: purple;
+	width: 90px;
+	height: 90px;
+	border-radius: 100%;
+	margin: 5px;
+	float: left;
+}
+.invisible{
+	opacity:0;
+	animation: desaparecer 1.5s;
+}
+
+@keyframes desaparecer{
+	0%{
+		opacity: 1;
+		transform: scale(1);
+	}
+	5%{
+		opacity: 1;
+		transform: scale(1.4);
+	}
+	97%{
+		opacity: 1;
+		transform: scale(0.01);
+	}
+	100%{
+		opacity: 0;
+		transform: scale(0.01);
+	}
+}
+.timer{
+	width: 400px;
+	border: 1px solid #ccc;
+	height: 20px;
+	padding: 5px;
+	margin: 20px auto 0;
+}
+.bloque_timer{
+	background-color: #066;
+	margin: 0 0.5%;
+	height: 20px;
+	float: left;
+}
+h1{
+	margin: 20px;
+	text-align: center;
+	font-family: impact;
+	color: blackr;
+}
+.fondo_modal{
+	background-color: rgba(0,0,0,0.8);
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	height: 100vh;
+}
+.modal{
+	width: 400px;
+	border: 1px solid #000;
+	padding: 20px 0;
+	border-radius: 5px;
+	margin: 200px auto 0;
+	background-color: #fff; 
+}
+.modal h3{
+	color:#900;
+	font-weight: normal;
+	font-family: impact;
+	font-size: 1.5em;
+	text-align: center;
+}
+.reset{
+	display:block;
+	background-color: #06c;
+	width: 150px;
+	padding: 10px 0;
+	text-align: center;
+	text-decoration: none;
+	font-family: impact;
+	font-size: 1em;
+	color: #fff;
+	margin: 20px auto 0;
+	border-radius: 2px;
+}

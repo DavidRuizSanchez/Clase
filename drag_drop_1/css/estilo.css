@@ -1,0 +1,20 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.contenedor{
+
+	/*el position:absolute sirve para que elelemnto tome como referencia a su contenedor, en lugar de a su padre, en este caso el body*/
+	position: relative; 
+	width: 498px;
+	height: 498px;
+	border: 1px solid #333;
+	margin: 100px auto 0;
+}
+.cuadrado{
+	height: 100px;
+	width: 100px;
+	background-color: #600;
+	position: absolute;
+}	
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="estilo_menu_multiple.css">
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<ul>
+		<li><a href="#">HoMe</a></li>
+		<li><a href="#" id="desplegable_uno">CaTeGoRíAs</a>
+			<ul class="lista_categorias esconder">
+				<li><a href="#">HoGaR</a></li>
+				<li><a href="#">NiÑoS</a></li>
+			</ul>
+		</li>
+		<li><a href="#" id="desplegable_dos">QuIeNeS SoMoS</a>
+			<ul class="lista_categorias esconder">
+				<li><a href="#">RsC</a></li>
+				<li><a href="#">NuEsTrA EmPrEsA</a></li>
+			</ul>
+		</li>
+	</ul>
+
+<script>
+	window.onload=function(){
+		var control_1=0; //0 cerrado y 1 abierto
+		var control_2=0; //0 cerrado y 1 abierto
+		var categoria_uno=document.getElementsByClassName("lista_categorias")[0];
+		var categoria_dos=document.getElementsByClassName("lista_categorias")[1];
+		var desplegable_uno=document.getElementById("desplegable_uno");
+		var desplegable_dos=document.getElementById("desplegable_dos");
+
+		desplegable_uno.onclick=function(e){
+			e.preventDefault();
+			console.log("HOLA");
+			if (control_1==0){
+				categoria_uno.className="lista_categorias";
+				control_1=1;
+			}else{
+				categoria_uno.className="lista_categorias esconder";
+				control_1=0;
+			}
+			
+		}
+		desplegable_dos.onclick=function(e){
+			e.preventDefault();
+			if (control_2==0){
+				categoria_dos.className="lista_categorias";
+				control_2=1;
+			}else{
+				categoria_dos.className="lista_categorias esconder";
+				control_2=0;
+			}
+
+		}
+		
+
+	}
+</script>
+</body>
+</html>

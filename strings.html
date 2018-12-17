@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+	
+</head>
+<body>
+	<h1>Tipos de variable</h1>
+	<script>
+
+		//lynda.com --> mejores cursos
+
+window.onload=function() {
+	var a=8;
+	var b=7;
+	if(a+b<15){
+		console.log("menor");
+	}else if(a+b==15){
+		console.log("igual");
+	}else{
+		console.log("mayor");
+	}
+
+	//STRINGS
+	
+	var nombre="David";
+
+	//Una propiedad
+	
+	console.log(nombre.length); //devuelve la longitud
+
+	//algunos metodos
+	
+	console.log(nombre.toUpperCase()); //a mayusculas
+	console.log(nombre.toLowerCase()); //a minusculas
+	console.log(nombre.slice(2,4)); //Corta la cadena, desde el primer caracter especificado (si cuenta) hasta el segundo (no cuenta). Si no se especifica el segundo parámetro tomo como referencia el primero y va hasta el final.
+	
+	//se pueden encadenar metodos con .
+	var nombre2="MaYuScUlAs"
+	console.log(nombre2);
+	console.log(nombre2=nombre2.toUpperCase().slice(0,1)+nombre2.toLowerCase().slice(1));//se guarda el valor original de nombre hasta que acaba la línea
+
+	//ARRAYS
+
+	var estudiantes=["manolo","luis","pedro","juan"];
+	estudiantes.push(3); //agrega un elemento al final del Array 
+	console.log(estudiantes);
+
+
+}
+
+
+
+
+	</script>
+
+</body>
+</html>
+

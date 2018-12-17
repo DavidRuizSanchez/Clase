@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="estilo_menu_multiple.css">
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<ul>
+		<li><a href="#">HoMe</a></li>
+		<li><a class="boton" href="#">CaTeGoRíAs</a>
+			<ul class="menu esconder">
+				<li><a href="#">HoGaR</a></li>
+				<li><a href="#">NiÑoS</a></li>
+			</ul>
+		</li>
+		<li><a class="boton" href="#">QuIeNeS SoMoS</a>
+			<ul class="menu esconder">
+				<li><a href="#">RsC</a></li>
+				<li><a href="#">NuEsTrA EmPrEsA</a></li>
+			</ul>
+		</li>
+	</ul>
+
+<script>
+	window.onload=function(){
+		var botones=document.getElementsByClassName("boton");
+		var menu=document.getElementsByClassName("menu");
+		var estados=[];
+
+		for(var i=0;i<botones.length;i++){
+			(function(indice){ //la clausura para guardar la i de cada iteración
+				estados[indice]=0; //0 menu cerrado, 1 abierto. Los fijamos a 0 porque al principio están cerrados
+				botones[indice].onclick=function(e){
+					e.preventDefault();
+					if(estados[indice]==0){
+						menu[indice].className="menu"
+						estados[indice]=1;
+					}else{
+						menu[indice].className="menu esconder"
+						estados[indice]=0;
+					}
+				}
+			})(i);
+
+		}
+
+	}
+</script>
+</body>
+</html>

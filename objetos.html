@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<h1>OBJETOS</h1>
+	<script>
+		window.onload=function(){
+			var persona={
+				nombre: "David", //propiedad
+				edad: 36, //propiedad
+				profesion: "SEO", //propiedad
+				saludo: function(){ //metodo
+					return this.edad; //this representa al objeto entero del que es objetivo, en este caso, el objeto persona. 
+					
+				}
+			};
+			//persona.apellido="Ruiz"; añade una propiedad al final del objeto
+			
+			console.log(persona.saludo()); //en este caso accedemos a la propiedad saludo del objeto persona, que es un metodo que pide la propiedad edad del mismo objeto. Es redundante, pero sirve para entender el this.
+			
+			//persona.saludo();
+
+			function suma(){
+				//return arguments.length; //arguments es un array que se crea con los elementos que le hemos pasado a la función.
+				var resultado=0;
+				for(var i=0;i<arguments.length;i++){ //ponemos el <arguments.length porque el indice es un numero menos que la longitud
+					resultado=resultado + arguments[i]; //es lo mismo que resultado+=arguments[i]
+				}
+				return(resultado);
+
+
+			}
+			console.log(suma(5,6,7,9,8,111));
+		}
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		body{
+			margin:0;
+			margin-left: 10px;
+			padding:0;
+			font-family: tahoma;
+		}
+		form{
+			width: 400px;
+			padding: 20px;
+			margin: 100px auto 0; <!-- cuando se ponen 3 valores, el primero es para arriba, el segundo para los lados y el tercero para abajo. En este caso el auto, centra el elemnto por los lados -->
+		}
+		.color{
+			height: 398px;
+			border: 1px solid#000;
+		}
+		.controles{
+			margin-top: 20px;
+		}
+		label{
+			font-size: 0.9em;
+			display: block;
+		}
+		.control{
+			display: block;  /* */
+			width: 100%;
+			margin: 10px 0;
+		}
+		
+	</style>
+</head>
+<body>
+	<h1>Color Picker</h1>
+	<form>
+		<div class="color"></div>
+		<div class="controles">
+			<label>Rojo</label>
+			<input class="control" type="range" min="0" max="255" step="1" value="0">
+			<label>Verde</label>
+			<input class="control" type="range" min="0" max="255" step="1" value="0">
+			<label>Azul</label>
+			<input class="control" type="range" min="0" max="255" step="1" value="0">
+		</div>
+
+	</form>
+<script> //al rellenar las variables tomamos el control de los elmentos
+	window.onload=function(){ //funcion anonima
+		var cuadro_color=document.getElementsByClassName("color")[0];
+		var controles=document.getElementsByClassName("control");
+		var colores=[0,0,0]; //declaramos la variable a 0, ya que los valores iniciales de los range es 0
+		cuadro_color.style.backgroundColor="rgb("+colores[0]+","+colores[1]+","+colores[2]+")";
+
+		for(var i=0;i<controles.length;i++){
+
+			(function(indice){
+				controles[indice].oninput=function(){
+					console.log(controles[indice].value); //this es la victima del evento. Hace referencia al propio objeto sobre el que estamos haciendo el evento, en este caso controles[i]
+					colores[indice]=controles[indice].value;
+					cuadro_color.style.backgroundColor="rgb("+colores[0]+","+colores[1]+","+colores[2]+")";
+			}
+		})(i)
+
+		}
+
+		console.log(i);
+		
+		(function prueba(nombre){
+			console.log("Hola "+nombre);
+		})("Pedro"); //funcion autoejecutable. Permite que se dispare en tiempo de ejecución.
+		
+		//prueba("juan"); //funcion normal
+
+	}
+</script>
+</body>
+</html>

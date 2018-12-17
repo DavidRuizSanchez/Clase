@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		body{
+			margin:0;
+			padding:0;
+			font-family: sans-serif;
+		}
+		nav{
+			padding: 10px;
+		}
+		nav ul{
+			list-style-type: none; /*para quitar las viñetas*/
+			padding: 0;
+			margin: 0;
+		}
+		nav ul li a{
+			display: block;
+			width: 200px;
+			padding: 5px;
+			text-decoration: none;
+			color: #333;
+		}
+		nav ul li a.activo{ /*para los enlaces con la clase activo*/
+			border-left: 3px solid #999;
+		}
+		div {
+			padding: 10px;
+			display:none;
+		}
+		div.activa{
+			display: block;
+		}
+	</style>
+	<title></title>
+</head>
+<body>
+	<h1>TABS</h1>
+
+<script>
+	//idea para hacer yo: cambiar el title al hacer click
+	window.onload=function(){
+		var tabs=[];
+		for(var i=0;i<3;i++){
+			tabs[i]={
+				titulo: "Tab "+i,
+				contenido: "Contenido de la tab "+i
+			}
+		var navegacion=document.createElement("nav");
+		}
+		//console.log(tabs);
+		//console.log(navegacion);
+		//document.body.appendChild(navegacion); para crear objetos del DOM
+		var lista=document.createElement("ul"); //crada lista pero no mandada al DOm
+		for (var i=0;i<tabs.length;i++){
+			var item=document.createElement("li");
+			var enlace=document.createElement("a");
+
+			enlace.href="#"; //añadimos el href al enlace
+
+			enlace.className=(i==0)?"activo":""; //operador ternario, mirar abajo
+			enlace.innerHTML=tabs[i].titulo; //añadimos el texto al enlace
+			item.appendChild(enlace); //metemos el enlace dentro del item
+			lista.appendChild(item); //metemos el item en la lista
+		}		
+		navegacion.appendChild(lista); //metemos la lista dentro del nav
+		document.body.appendChild(navegacion); //metemos todo en el body (para que se vea enel html)
+		
+		for(var i=0;i<tabs.length;i++){
+			var contenedor=document.createElement("div");
+			contenedor.className=(i==0)?"activa":""; //Operador ternario --> si lo que hay a la izquierda de la interrogacion es verdadero, entonces hace lo que hay la izquierda de los 2 puntos, sino lo que hay a la derecha de los 2 puntos.
+			var parrafo=document.createElement("p");
+			parrafo.innerHTML=tabs[i].contenido;
+			contenedor.appendChild(parrafo); //se añade el parrafo al div
+			document.body.appendChild(contenedor); //se añade el div al body para que se muestre
+		}
+
+		var enlaces=document.getElementsByTagName("a");
+		var contenedores=document.getElementsByTagName("div");
+		for(var i=0;i<enlaces.length;i++){
+			// enlaces[i].onclick=function(evento){ //para que no navegue por defecto al href del enlace, utilizamos evento (podría ser la palabra que quisiéramos)
+			// evento.preventDefault();
+			// console.log(i); //esto da como resultado 3 porque el bucle corre, pero la función en un callback, de manera que hasta que no hagamos click no se ejecuta, y nos nos da tiempo a hacer click antes de que el bucle termine
+				(function(indice){
+					enlaces[indice].onclick=function(evento){ //las clausuras retienen el valor de una variable, aunque el for siga su curso. Quedan en el aire los 3 callback esperando a que hagamos el onlcick y caundo lo hacemos nos muestra el valor clausurado.
+						evento.preventDefault;
+						console.log(indice);
+						for(var j=0;j<enlaces.length;j++){
+							enlaces[j].className="";
+							contenedores[j].className="";
+						}
+
+						enlaces[indice].className="activo";
+						contenedores[indice].className="activa";
+								
+						}
+				})(i); 
+
+			}
+		}
+	
+</script>
+</body>
+</html>

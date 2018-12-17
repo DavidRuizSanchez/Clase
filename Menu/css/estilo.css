@@ -1,0 +1,80 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	font-size: 100%;
+}
+nav{
+	position: absolute;
+	width: 100%;
+	top: -100%;
+	background-color: #fff;
+
+}
+.nav_visible{
+	top:0;
+}
+.nav_abrir{
+	animation:abrir 0.5s;
+}
+.nav_cerrar{
+	animation: cerrar 5.5s;
+}
+nav ul{
+	list-style-type: none;	
+	margin: 0;
+	padding: 0;
+	clear:both;
+}
+nav ul li a{
+	display: block;
+	text-align: center;
+	padding: 10px 0; /*separación ente objetios*/
+	text-transform: uppercase;
+	color: #069;
+	text-decoration: none; /*quitar barra de enlace*/
+	transition: 0.2s; /*animacion en los enlaces*/
+}
+nav ul li a:hover{
+	background-color: #069;
+	color: #fff;
+}
+.close_nav{ /*. porque es una clase*/
+	display: block;
+	text-decoration: none;
+	color: #069;
+	font-size: 1.2em;
+	text-align: center;
+	width: 30px;
+	padding: 5px 0;
+	float: right;
+
+}
+.burguer {
+	display:block;
+	background-color: #069;
+	padding: 10px;
+	width: 30px;
+}
+.linea{
+	display: block;
+	background-color: #fff;
+	height: 5px;
+	margin: 3px 0;
+}
+@keyframes abrir{
+	0%{
+		top: -100%;
+	}
+	100%{
+		top: 0;
+	}
+}
+@keyframes cerrar{
+	100%{
+		top: -100%;
+	}
+	0%{
+		top: 0;
+	}
+}

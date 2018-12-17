@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		.activo{
+			font-weight: bold;
+		}
+	</style>
+	<title></title>
+</head>
+<body>
+	<h1 id="main">jQuery</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+
+	<ul>
+		<li>
+			<a href="#" class="enlace">Enlace1</a>
+		</li>
+		<li>
+			<a href="#" class="enlace">Enlace2</a>
+		</li>
+		<li>
+			<a href="#" class="enlace">Enlace3</a>
+		</li>
+		<li>
+			<a href="#" class="enlace">Enlace4</a>
+		</li>
+	</ul>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+	<script>
+		//donde $ es el objeto jQuery, (document) es un selector parqa que haga la query, ready es el método jQuery y lo que hay en los paréntesis es el callback (casi siempre una fucnión).
+		$(document).ready(
+			function(){
+				$("#main").click( //al hacer click en el elemnto que tenga el id main, ejecuta este callback
+					function(){
+						console.log($(this)); //imprime el elemento jQuery que es víctima del evento (es diferente al vanilla)
+					});
+				var parrafos=$("p");
+				console.log(parrafos.length);
+
+				$(".enlace").each(
+					function(indice){
+						$(this).click(
+						function(evento){
+							evento.preventDefault();
+							//console.log(indice);
+							$(".activo").removeClass("activo");
+							$(this).addClass("activo");
+						}
+
+						)
+
+					}
+
+					);
+			}
+			
+			);
+				
+
+
+	</script>
+</body>
+</html>
